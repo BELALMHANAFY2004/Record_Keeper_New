@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -12,7 +13,6 @@
             android:id="@+id/frame_heading"
             android:layout_width="0dp"
             android:layout_height="200dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -23,21 +23,22 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@string/running_Image_description"
                 android:scaleType="centerCrop"
-                android:src="@drawable/thccaffinerun" />
+                android:src="@drawable/cycling_scenic_route_stockcake"/>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/gradient_overlay"/>
+                android:background="@drawable/gradient_overlay" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/running_heading"
                 android:layout_gravity="bottom"
+                android:layout_marginBottom="15dp"
                 android:gravity="center"
-                android:textSize="30sp"
+                android:text="@string/cycling_heading"
                 android:textColor="@color/white"
-                android:layout_marginBottom="15dp"/>
+                android:textSize="30sp" />
 
 
         </FrameLayout>
@@ -45,12 +46,153 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/frame_heading"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:orientation="vertical"
-            >
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/frame_heading">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:id="@+id/container_longest_ride"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/text_view_longest_ride_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/longest_ride_heading"
+                    android:textColor="@color/primary_color"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_view_longest_ride_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="@id/container_longest_ride"
+                    app:layout_constraintTop_toTopOf="@id/container_longest_ride"
+                    tools:text="22:04" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@id/container_longest_ride"
+                    app:layout_constraintBottom_toBottomOf="@id/container_longest_ride"
+                    tools:text="10/10/2026"
+                    app:layout_constraintTop_toBottomOf="@id/text_view_longest_ride_value"
+                    android:textSize="18sp"
+                    android:layout_marginTop="13dp"
+                    android:fontFamily="sans-serif-light"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/primary_color"
+                android:layout_marginTop="20dp"/>
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container_biggest_climb"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/text_view_biggest_climb_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/biggest_climb_heading"
+                    android:textColor="@color/primary_color"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_view_biggest_climb_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="@id/container_biggest_climb"
+                    app:layout_constraintTop_toTopOf="@id/container_biggest_climb"
+                    tools:text="22:04" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@id/container_biggest_climb"
+                    app:layout_constraintBottom_toBottomOf="@id/container_biggest_climb"
+                    tools:text="10/10/2026"
+                    app:layout_constraintTop_toBottomOf="@id/text_view_biggest_climb_value"
+                    android:textSize="18sp"
+                    android:layout_marginTop="13dp"
+                    android:fontFamily="sans-serif-light"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/primary_color"
+                android:layout_marginTop="20dp"/>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container_best_average_speed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/text_view_best_average_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/best_average_speed_heading"
+                    android:textColor="@color/primary_color"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_view_half_best_average_speed_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="@id/container_best_average_speed"
+                    app:layout_constraintTop_toTopOf="@id/container_best_average_speed"
+                    tools:text="22:04" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@id/container_best_average_speed"
+                    app:layout_constraintBottom_toBottomOf="@id/container_best_average_speed"
+                    tools:text="10/10/2026"
+                    app:layout_constraintTop_toBottomOf="@id/text_view_half_best_average_speed_value"
+                    android:textSize="18sp"
+                    android:layout_marginTop="13dp"
+                    android:fontFamily="sans-serif-light"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </LinearLayout>
 
