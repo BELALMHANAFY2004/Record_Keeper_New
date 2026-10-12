@@ -1,15 +1,17 @@
 package com.belalmhanafy.recordkeeper
 
+import android.app.AlertDialog
+import android.app.Dialog
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.commit
 import com.belalmhanafy.recordkeeper.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
@@ -26,6 +28,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         }
 
         binding.bottomNav.setOnNavigationItemSelectedListener(this)
+        onBackPressedDispatcher.addCallback {
+            showDialog()
+        }
 
 
     }
@@ -55,4 +60,16 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         }
 
     }
+
+    fun showDialog() {
+        AlertDialog.Builder(this).setTitle("Warning!")
+            .setPositiveButton("Yes") { firstParameter, secondParameter -> finish()}
+            .setView(R.layout.dialog_warning)
+            .setNegativeButton("No") { dialog, which -> dialog.dismiss()}
+            .setNeutralButton("More Info"){dialog,_ -> Toast.makeText(this,"this is where you can find out more about the app",
+                Toast.LENGTH_LONG).show()
+            dialog.dismiss() }.show()
+
+    }
+
 }

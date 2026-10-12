@@ -14,4 +14,6 @@
     <string name="biggest_climb_heading">Biggest Climb</string>
     <string name="best_average_speed_heading">Best Average Speed</string>
     <string name="cycling_heading">Cycling</string>
+    <string name="warning_icon_description">You are about to leave the app . Are you sure ?</string>
+    <string name="leaving_app_warning">You are about to leave the app . Are you sure ?</string>
 </resources>
