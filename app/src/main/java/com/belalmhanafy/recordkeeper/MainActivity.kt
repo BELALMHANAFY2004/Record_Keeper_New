@@ -1,7 +1,6 @@
 package com.belalmhanafy.recordkeeper
 
 import android.app.AlertDialog
-import android.app.Dialog
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
@@ -11,7 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.commit
+import com.belalmhanafy.recordkeeper.cycling.cycling_fragment
 import com.belalmhanafy.recordkeeper.databinding.ActivityMainBinding
+import com.belalmhanafy.recordkeeper.running.Running_fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {

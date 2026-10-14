@@ -1,19 +1,22 @@
-package com.belalmhanafy.recordkeeper
+package com.belalmhanafy.recordkeeper.running
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.belalmhanafy.recordkeeper.databinding.ActivityEditCyclingRecordBinding
+import com.belalmhanafy.recordkeeper.R
+import com.belalmhanafy.recordkeeper.databinding.ActivityEditRunningRecordBinding
 
-class Edit_Cycling_Record_Activity : AppCompatActivity() {
+class EditRunningRecordActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityEditCyclingRecordBinding
+
+    private lateinit var binding: ActivityEditRunningRecordBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding= ActivityEditCyclingRecordBinding.inflate(layoutInflater)
+        binding = ActivityEditRunningRecordBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -21,7 +24,7 @@ class Edit_Cycling_Record_Activity : AppCompatActivity() {
             insets
         }
 
-        val ride_type =intent.getStringExtra("Ride")
-        binding.editCyclingRecordTypeTitle.text=ride_type
+        val distance = intent.getStringExtra("Distance")
+        binding.editRunningRecordDistanceTitle.text = distance
     }
 }

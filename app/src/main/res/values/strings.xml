@@ -16,4 +16,8 @@
     <string name="cycling_heading">Cycling</string>
     <string name="warning_icon_description">You are about to leave the app . Are you sure ?</string>
     <string name="leaving_app_warning">You are about to leave the app . Are you sure ?</string>
+    <string name="record_text_input_layout">Record</string>
+    <string name="date_text_input_layout">Date</string>
+    <string name="save_editText_button">Save</string>
+    <string name="delete_record_editText_button">Delete Record</string>
 </resources>

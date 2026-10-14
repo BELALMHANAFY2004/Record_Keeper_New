@@ -1,4 +1,4 @@
-package com.belalmhanafy.recordkeeper
+package com.belalmhanafy.recordkeeper.running
 
 import android.content.Intent
 import android.os.Bundle

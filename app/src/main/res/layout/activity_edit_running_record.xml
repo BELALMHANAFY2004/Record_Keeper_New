@@ -5,19 +5,93 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditRunningRecordActivity">
+    android:padding="10dp"
+    tools:context=".running.EditRunningRecordActivity">
 
 
     <TextView
         android:id="@+id/editRunningRecordDistanceTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Distance Value"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="25sp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:textSize="18sp"
-        android:fontFamily="sans-serif-condensed-medium"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Distance Value" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputRecord"
+        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:hint="@string/record_text_input_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editRunningRecordDistanceTitle"
+
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_record"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputDate"
+        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:hint="@string/date_text_input_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textInputRecord"
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_Date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/saveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="50dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/save_editText_button"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textInputDate" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/deleteRecordButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="50dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/delete_record_editText_button"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/saveButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
