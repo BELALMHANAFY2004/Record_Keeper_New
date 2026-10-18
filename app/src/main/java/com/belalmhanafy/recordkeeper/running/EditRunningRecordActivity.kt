@@ -1,8 +1,10 @@
 package com.belalmhanafy.recordkeeper.running
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.belalmhanafy.recordkeeper.R
@@ -25,6 +27,21 @@ class EditRunningRecordActivity : AppCompatActivity() {
         }
 
         val distance = intent.getStringExtra("Distance")
+        binding.editRunningRecordDistanceTitle.text.toString()
         binding.editRunningRecordDistanceTitle.text = distance
+        binding.saveButton.setOnClickListener { saveRecord(distance) }
+
+    }
+
+    private fun saveRecord(distance: String?) {
+        val record = binding.editTextRecord.text.toString()
+        val date = binding.editTextDate.text.toString()
+        val runningShardPreferences = getSharedPreferences("Running Records", MODE_PRIVATE)
+
+        runningShardPreferences.edit {
+            putString("$distance record",record)
+            putString("$distance date",date)
+        }
+        Toast.makeText(this, "The Record has been saves successfully , thank you :)", Toast.LENGTH_SHORT).show()
     }
 }
