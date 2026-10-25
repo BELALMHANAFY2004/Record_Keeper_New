@@ -29,14 +29,23 @@ class EditRunningRecordActivity : AppCompatActivity() {
         val distance = intent.getStringExtra("Distance")
         binding.editRunningRecordDistanceTitle.text.toString()
         binding.editRunningRecordDistanceTitle.text = distance
-        binding.saveButton.setOnClickListener { saveRecord(distance) }
+        binding.saveButton.setOnClickListener { saveRecord(distance)
+        finish()}
+        displayRecord(distance)
 
+    }
+
+    private fun displayRecord(distance: String?) {
+
+        val runningRecordActivity =getSharedPreferences("Running Records",MODE_PRIVATE)
+        binding.editTextRecord.setText(runningRecordActivity.getString("$distance record",null))
+        binding.editTextDate.setText(runningRecordActivity.getString("$distance date",null))
     }
 
     private fun saveRecord(distance: String?) {
         val record = binding.editTextRecord.text.toString()
         val date = binding.editTextDate.text.toString()
-        val runningShardPreferences = getSharedPreferences("Running Records", MODE_PRIVATE)
+        val runningShardPreferences = getSharedPreferences("Running Records",MODE_PRIVATE)
 
         runningShardPreferences.edit {
             putString("$distance record",record)

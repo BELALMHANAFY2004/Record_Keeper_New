@@ -82,6 +82,7 @@
                     tools:text="22:04" />
 
                 <TextView
+                    android:id="@+id/text_view_5km_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="@id/container_5km"
@@ -132,6 +133,7 @@
                     tools:text="22:04" />
 
                 <TextView
+                    android:id="@+id/text_view_10km_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="@id/container_10km"
@@ -181,6 +183,7 @@
                     tools:text="22:04" />
 
                 <TextView
+                    android:id="@+id/text_view_Half_marathon_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="@id/container_half_marathon"
@@ -232,6 +235,7 @@
                     tools:text="22:04" />
 
                 <TextView
+                    android:id="@+id/text_view_marathon_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="@id/container_marathon"
