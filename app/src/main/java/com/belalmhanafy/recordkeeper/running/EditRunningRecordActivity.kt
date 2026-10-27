@@ -1,5 +1,6 @@
 package com.belalmhanafy.recordkeeper.running
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -12,6 +13,12 @@ import com.belalmhanafy.recordkeeper.databinding.ActivityEditRunningRecordBindin
 
 class EditRunningRecordActivity : AppCompatActivity() {
 
+    private val runningRecordActivity: SharedPreferences by lazy {
+        getSharedPreferences("Running Records", MODE_PRIVATE)
+    }
+    private val distance: String? by lazy {
+        intent.getStringExtra("Distance")
+    }
 
     private lateinit var binding: ActivityEditRunningRecordBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,32 +32,50 @@ class EditRunningRecordActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        setupUI()
+        displayRecord()
+    }
 
-        val distance = intent.getStringExtra("Distance")
-        binding.editRunningRecordDistanceTitle.text.toString()
+    private fun setupUI() {
         binding.editRunningRecordDistanceTitle.text = distance
-        binding.saveButton.setOnClickListener { saveRecord(distance)
-        finish()}
-        displayRecord(distance)
+        binding.saveButton.setOnClickListener {
+            saveRecord()
+            finish()
+        }
 
+        binding.deleteRecordButton.setOnClickListener {
+            deleteRecord()
+            finish()
+        }
     }
 
-    private fun displayRecord(distance: String?) {
 
-        val runningRecordActivity =getSharedPreferences("Running Records",MODE_PRIVATE)
-        binding.editTextRecord.setText(runningRecordActivity.getString("$distance record",null))
-        binding.editTextDate.setText(runningRecordActivity.getString("$distance date",null))
+    private fun displayRecord() {
+        binding.editTextRecord.setText(runningRecordActivity.getString("$distance record", null))
+        binding.editTextDate.setText(runningRecordActivity.getString("$distance date", null))
     }
 
-    private fun saveRecord(distance: String?) {
+    private fun saveRecord() {
         val record = binding.editTextRecord.text.toString()
         val date = binding.editTextDate.text.toString()
-        val runningShardPreferences = getSharedPreferences("Running Records",MODE_PRIVATE)
+        val runningShardPreferences = getSharedPreferences("Running Records", MODE_PRIVATE)
 
         runningShardPreferences.edit {
-            putString("$distance record",record)
-            putString("$distance date",date)
+            putString("$distance record", record)
+            putString("$distance date", date)
         }
-        Toast.makeText(this, "The Record has been saves successfully , thank you :)", Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            this,
+            "The Record has been saved successfully , thank you :)",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+    fun deleteRecord() {
+        runningRecordActivity.edit {
+            remove("$distance record")
+            remove("$distance date")
+        }
+        Toast.makeText(this, "the record has been deleted successfully", Toast.LENGTH_SHORT).show()
     }
 }
