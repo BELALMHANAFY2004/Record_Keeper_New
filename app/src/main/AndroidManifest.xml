@@ -22,13 +22,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".running.EditRunningRecordActivity"
+            android:name=".Edit_Record.EditRecordActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".cycling.Edit_Cycling_Record_Activity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

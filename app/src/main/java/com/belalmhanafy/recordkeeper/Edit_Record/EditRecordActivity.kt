@@ -1,4 +1,4 @@
-package com.belalmhanafy.recordkeeper.running
+package com.belalmhanafy.recordkeeper.Edit_Record
 
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -9,23 +9,26 @@ import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.belalmhanafy.recordkeeper.R
-import com.belalmhanafy.recordkeeper.databinding.ActivityEditRunningRecordBinding
+import com.belalmhanafy.recordkeeper.databinding.ActivityEditRecordBinding
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.Serializer
 
-class EditRunningRecordActivity : AppCompatActivity() {
+class EditRecordActivity : AppCompatActivity() {
 
-    private val runningRecordActivity: SharedPreferences by lazy {
-        getSharedPreferences("Running Records", MODE_PRIVATE)
+    private val screenData: ScreenData by lazy {
+        intent.getSerializableExtra("Screen_Data") as ScreenData
     }
-    private val distance: String? by lazy {
-        intent.getStringExtra("Distance")
+
+    private val recordPreferences: SharedPreferences by lazy {
+        getSharedPreferences(screenData.sharedPreferencesName, MODE_PRIVATE)
     }
 
-    private lateinit var binding: ActivityEditRunningRecordBinding
+    private lateinit var binding: ActivityEditRecordBinding
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityEditRunningRecordBinding.inflate(layoutInflater)
+        binding = ActivityEditRecordBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -37,7 +40,8 @@ class EditRunningRecordActivity : AppCompatActivity() {
     }
 
     private fun setupUI() {
-        binding.editRunningRecordDistanceTitle.text = distance
+        binding.editRunningRecordDistanceTitle.text = "${screenData.record} Record"
+        binding.textInputRecord.hint = screenData.recordFieldHint
         binding.saveButton.setOnClickListener {
             saveRecord()
             finish()
@@ -51,18 +55,18 @@ class EditRunningRecordActivity : AppCompatActivity() {
 
 
     private fun displayRecord() {
-        binding.editTextRecord.setText(runningRecordActivity.getString("$distance record", null))
-        binding.editTextDate.setText(runningRecordActivity.getString("$distance date", null))
+        binding.editTextRecord.setText(recordPreferences.getString("${screenData.record} record", null))
+        binding.editTextDate.setText(recordPreferences.getString("${screenData.record} date", null))
     }
 
     private fun saveRecord() {
         val record = binding.editTextRecord.text.toString()
         val date = binding.editTextDate.text.toString()
-        val runningShardPreferences = getSharedPreferences("Running Records", MODE_PRIVATE)
+        val recordPreferences = getSharedPreferences(screenData.sharedPreferencesName, MODE_PRIVATE)
 
-        runningShardPreferences.edit {
-            putString("$distance record", record)
-            putString("$distance date", date)
+        recordPreferences.edit {
+            putString("${this@EditRecordActivity.screenData.record} record", record)
+            putString("${this@EditRecordActivity.screenData.record} date", date)
         }
         Toast.makeText(
             this,
@@ -72,10 +76,19 @@ class EditRunningRecordActivity : AppCompatActivity() {
     }
 
     fun deleteRecord() {
-        runningRecordActivity.edit {
-            remove("$distance record")
-            remove("$distance date")
+        recordPreferences.edit {
+            remove("${screenData.record} record")
+            remove("${screenData.record} date")
         }
         Toast.makeText(this, "the record has been deleted successfully", Toast.LENGTH_SHORT).show()
     }
+
+    data class ScreenData(
+
+        val record: String,
+        val sharedPreferencesName: String,
+        val recordFieldHint: String
+    ) : java.io.Serializable
+
+
 }

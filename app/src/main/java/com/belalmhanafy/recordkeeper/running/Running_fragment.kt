@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.belalmhanafy.recordkeeper.Edit_Record.EditRecordActivity
 import com.belalmhanafy.recordkeeper.databinding.RunningFragmentBinding
 
 class Running_fragment : Fragment() {
@@ -62,8 +63,10 @@ class Running_fragment : Fragment() {
     }
 
     private fun launchRecordRunningScreen(distance: String) {
-        val intent = Intent(context, EditRunningRecordActivity::class.java)
-        intent.putExtra("Distance", distance)
+        val intent = Intent(context, EditRecordActivity::class.java)
+        intent.putExtra(
+            "Screen_Data",EditRecordActivity.ScreenData(distance, "Running Records", "Time")
+        )
         startActivity(intent)
     }
 }
