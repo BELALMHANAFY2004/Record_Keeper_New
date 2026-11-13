@@ -61,12 +61,10 @@
 
                 <TextView
                     android:id="@+id/text_view_5km_heading"
+                    style="@style/RecordNameTextAppearance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed-medium"
                     android:text="@string/_5km_heading"
-                    android:textColor="@color/primary_color"
-                    android:textSize="25sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -85,42 +83,40 @@
                     android:id="@+id/text_view_5km_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@id/container_5km"
-                    app:layout_constraintBottom_toBottomOf="@id/container_5km"
-                    tools:text="10/10/2026"
-                    app:layout_constraintTop_toBottomOf="@id/text_view_5km_value"
-                    android:textSize="18sp"
                     android:layout_marginTop="13dp"
-                    android:fontFamily="sans-serif-light"/>
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/container_5km"
+                    app:layout_constraintEnd_toEndOf="@id/container_5km"
+                    app:layout_constraintTop_toBottomOf="@id/text_view_5km_value"
+                    tools:text="10/10/2026" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/primary_color"
-                android:layout_marginTop="20dp"/>
-
+                android:layout_marginTop="20dp"
+                android:background="@color/primary_color" />
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/container_10km"
-                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:padding="16dp">
 
                 <TextView
                     android:id="@+id/text_view_10km_heading"
+                    style="@style/RecordNameTextAppearance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed-medium"
                     android:text="@string/_10km_heading"
-                    android:textColor="@color/primary_color"
-                    android:textSize="25sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.481" />
 
                 <TextView
                     android:id="@+id/text_view_10km_value"
@@ -136,38 +132,36 @@
                     android:id="@+id/text_view_10km_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@id/container_10km"
-                    app:layout_constraintBottom_toBottomOf="@id/container_10km"
-                    tools:text="10/10/2026"
-                    app:layout_constraintTop_toBottomOf="@id/text_view_10km_value"
-                    android:textSize="18sp"
                     android:layout_marginTop="13dp"
-                    android:fontFamily="sans-serif-light"/>
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/container_10km"
+                    app:layout_constraintEnd_toEndOf="@id/container_10km"
+                    app:layout_constraintTop_toBottomOf="@id/text_view_10km_value"
+                    tools:text="10/10/2026" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/primary_color"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:background="@color/primary_color" />
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/container_half_marathon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:padding="16dp">
 
                 <TextView
                     android:id="@+id/text_view_half_marathon"
+                    style="@style/RecordNameTextAppearance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed-medium"
                     android:text="@string/half_marathon_heading"
-                    android:textColor="@color/primary_color"
-                    android:textSize="25sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -186,40 +180,36 @@
                     android:id="@+id/text_view_Half_marathon_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@id/container_half_marathon"
-                    app:layout_constraintBottom_toBottomOf="@id/container_half_marathon"
-                    tools:text="10/10/2026"
-                    app:layout_constraintTop_toBottomOf="@id/text_view_half_marathon_value"
-                    android:textSize="18sp"
                     android:layout_marginTop="13dp"
-                    android:fontFamily="sans-serif-light"/>
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/container_half_marathon"
+                    app:layout_constraintEnd_toEndOf="@id/container_half_marathon"
+                    app:layout_constraintTop_toBottomOf="@id/text_view_half_marathon_value"
+                    tools:text="10/10/2026" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/primary_color"
-                android:layout_marginTop="20dp"/>
-
-
+                android:layout_marginTop="20dp"
+                android:background="@color/primary_color" />
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/container_marathon"
-                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:padding="16dp">
 
                 <TextView
                     android:id="@+id/text_view_marathon"
+                    style="@style/RecordNameTextAppearance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed-medium"
                     android:text="@string/marathon_heading"
-                    android:textColor="@color/primary_color"
-                    android:textSize="25sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -238,16 +228,15 @@
                     android:id="@+id/text_view_marathon_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="@id/container_marathon"
-                    app:layout_constraintBottom_toBottomOf="@id/container_marathon"
-                    tools:text="10/10/2026"
-                    app:layout_constraintTop_toBottomOf="@id/text_view_marathon_value"
-                    android:textSize="18sp"
                     android:layout_marginTop="13dp"
-                    android:fontFamily="sans-serif-light"/>
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/container_marathon"
+                    app:layout_constraintEnd_toEndOf="@id/container_marathon"
+                    app:layout_constraintTop_toBottomOf="@id/text_view_marathon_value"
+                    tools:text="10/10/2026" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
         </LinearLayout>

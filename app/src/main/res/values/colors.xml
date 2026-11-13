@@ -2,6 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="primary_color">#4D4D4D</color>
+    <color name="primary_color">#9bee02</color>
+    <color name="secondary_color">#5502ee</color>
+    <color name="values_and_date_color_in_light_mode">#434343</color>
+    <color name="values_and_date_color_in_dark_mode">#25EE02</color>
 
 </resources>

@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment
 import com.belalmhanafy.recordkeeper.Edit_Record.EditRecordActivity
 import com.belalmhanafy.recordkeeper.databinding.FragmentCyclingFragmentBinding
 
+const val INTENT_EXTRA_SCREEN_DATA = "Screen_Data"
+
 class cycling_fragment : Fragment() {
 
     private lateinit var binding: FragmentCyclingFragmentBinding
@@ -33,29 +35,61 @@ class cycling_fragment : Fragment() {
         super.onResume()
         displayRecord()
     }
+
     private fun setupClickListeners() {
 
-        binding.containerLongestRide.setOnClickListener { launchRecordCyclingScreen("Longest Ride","Distance") }
-        binding.containerBiggestClimb.setOnClickListener { launchRecordCyclingScreen("Biggest Climb" , "Height") }
-        binding.textViewBestAverageSpeed.setOnClickListener { launchRecordCyclingScreen("Best Average Speed" , "Average Speed") }
+        binding.containerLongestRide.setOnClickListener {
+            launchRecordCyclingScreen(
+                "Longest Ride",
+                "Distance"
+            )
+        }
+        binding.containerBiggestClimb.setOnClickListener {
+            launchRecordCyclingScreen(
+                "Biggest Climb",
+                "Height"
+            )
+        }
+        binding.textViewBestAverageSpeed.setOnClickListener {
+            launchRecordCyclingScreen(
+                "Best Average Speed",
+                "Average Speed"
+            )
+        }
     }
 
     private fun displayRecord() {
-        val cyclingSharedPreferences = requireContext().getSharedPreferences("Cycling Records", Context.MODE_PRIVATE)
+        val cyclingSharedPreferences =
+            requireContext().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)
 
-        binding.textViewLongestRideValue.text= cyclingSharedPreferences.getString("Longest Ride record",null)
-        binding.textViewLongestRideDate.text=cyclingSharedPreferences.getString("Longest Ride date",null)
+        binding.textViewLongestRideValue.text =
+            cyclingSharedPreferences.getString("Longest Ride ${EditRecordActivity.SHARED_PREFERENCES_RECORD_KEY}", null)
+        binding.textViewLongestRideDate.text =
+            cyclingSharedPreferences.getString("Longest Ride ${EditRecordActivity.SHARED_PREFERENCES_DATE_KEY}", null)
 
-        binding.textViewBiggestClimbDate.text=cyclingSharedPreferences.getString("Biggest Climb record",null)
-        binding.textViewBiggestClimbDate.text=cyclingSharedPreferences.getString("Biggest Climb date",null)
+        binding.textViewBiggestClimbDate.text =
+            cyclingSharedPreferences.getString("Biggest Climb ${EditRecordActivity.SHARED_PREFERENCES_RECORD_KEY}", null)
+        binding.textViewBiggestClimbDate.text =
+            cyclingSharedPreferences.getString("Biggest Climb ${EditRecordActivity.SHARED_PREFERENCES_DATE_KEY}", null)
 
-        binding.textViewHalfBestAverageSpeedValue.text=cyclingSharedPreferences.getString("Best Average Speed record",null)
-        binding.textViewBestAverageSpeedDate.text=cyclingSharedPreferences.getString("Best Average Speed date",null)
+        binding.textViewHalfBestAverageSpeedValue.text =
+            cyclingSharedPreferences.getString("Best Average Speed ${EditRecordActivity.SHARED_PREFERENCES_RECORD_KEY}", null)
+        binding.textViewBestAverageSpeedDate.text =
+            cyclingSharedPreferences.getString("Best Average Speed ${EditRecordActivity.SHARED_PREFERENCES_DATE_KEY}", null)
     }
 
-    private fun launchRecordCyclingScreen(record: String , recordFieldHint: String) {
+    private fun launchRecordCyclingScreen(record: String, recordFieldHint: String) {
         val intent = Intent(context, EditRecordActivity::class.java)
-        intent.putExtra("Screen_Data", EditRecordActivity.ScreenData(record,"Cycling Records", recordFieldHint))
+        intent.putExtra(
+            INTENT_EXTRA_SCREEN_DATA, EditRecordActivity.ScreenData(
+                record,
+                FILE_NAME, recordFieldHint
+            )
+        )
         startActivity(intent)
+    }
+
+    companion object {
+        const val FILE_NAME = "cycling_shard_preferences"
     }
 }
